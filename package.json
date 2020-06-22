@@ -1,0 +1,35 @@
+{
+  "name": "autonomous_nodejs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "keywords": [
+    "NodeJs",
+    "Learing",
+    "Oracle",
+    "Autonomous"
+  ],
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "oracledb": "github:oracle/node-oracledb#v4.2.0",
+    "request": "^2.88.2"
+  },
+  "devDependencies": {
+    "dotenv": "^8.2.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stephane76/Autnomous_NJS.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stephane76/Autnomous_NJS/issues"
+  },
+  "homepage": "https://github.com/stephane76/Autnomous_NJS.git#readme"
+}
