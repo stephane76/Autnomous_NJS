@@ -31,7 +31,7 @@ app.listen(PORT, () => {
         var data = JSON.parse(body);
         console.log(data.count);
         MyArr = data.items
-        console.log(MyArr[0].name)
+        console.log(MyArr[0].name
         } 
         catch(err) {
         console.error("Erreur : "+err)
