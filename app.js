@@ -19,7 +19,7 @@ app.get('/NbrProcSE', (req, res) => {
     res.send('150');
   });
 // Listen to the App Engine-specified port, or 8080 otherwise
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 80;
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}...`);
 });
