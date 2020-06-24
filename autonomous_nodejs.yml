@@ -1,19 +1,33 @@
 apiVersion: apps/v1
 kind: Deployment
-metadata: 
+metadata:
   name: autonomous-nj
-spec: 
-  replicas: 1
-  selector: 
-    matchLabels: 
+spec:
+  selector:
+    matchLabels:
       app: autonomous-nodejs
-  template: 
-    metadata: 
-      labels: 
+  replicas: 1 # deployment runs 1 pods matching the template
+  template: # create pods using pod definition in this template
+    metadata:
+      labels:
         app: autonomous-nodejs
-    spec: 
-      containers: 
-          image: "registry-1.docker.io/virtuallionel2/se_lionel_2_0:3"
-          name: autonomous-nodejscnt
-          ports: 
-              containerPort: 80
+    spec:
+      containers:
+      - name: autonomous-nodejscnt
+        image: registry-1.docker.io/virtuallionel2/se_lionel_2_0:3
+        ports:
+        - containerPort: 80 #Endpoint is at port 80 in the container
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: autonomous-nj
+spec:
+  type: NodePort #Exposes the service as a node port
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: autonomous-nodejs
