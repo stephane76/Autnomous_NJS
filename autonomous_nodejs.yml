@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nodejsmicroappocir-k8s-deployment
+  name: nodejsmicroappocir-k8s-dep
 spec:
   selector:
     matchLabels:
@@ -14,8 +14,20 @@ spec:
     spec:
       containers:
       - name: nodejsmicro
-        image: iad.ocir.io/myaccount/ociuser/my_nodejs_image:latest
+        image: registry-1.docker.io/virtuallionel2/se_lionel_2_0:3
         ports:
         - containerPort: 80 #Endpoint is at port 80 in the container
-      imagePullSecrets:
-        - name: ocirsecret
+      
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nodejsmicroappocir-k8s-serv
+spec:
+  type: NodePort #Exposes the service as a node port
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: nodejsmicro
