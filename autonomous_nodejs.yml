@@ -14,7 +14,8 @@ spec:
     spec:
       containers:
       - name: nodejsmicro
-        image: registry-1.docker.io/virtuallionel2/se_lionel_2_0:3
+        image: registry-1.docker.io/virtuallionel2/se_lionel_2_0:2
+        imagePullPolicy: Always
         ports:
         - containerPort: 80 #Endpoint is at port 80 in the container
       imagePullSecrets:
