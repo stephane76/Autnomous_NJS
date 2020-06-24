@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: autonomous-nodejs-k8s-deployment
+  name: autonomous-nj
 spec:
   selector:
     matchLabels:
@@ -23,7 +23,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: autonomous-nodejs-k8s-service
+  name: autonomous-nj
 spec:
   type: NodePort #Exposes the service as a node port
   ports:
