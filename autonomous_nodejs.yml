@@ -1,0 +1,34 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: autonomous_nodejs-k8s-deployment
+spec:
+  selector:
+    matchLabels:
+      app: autonomous_nodejs
+  replicas: 1 # deployment runs 1 pods matching the template
+  template: # create pods using pod definition in this template
+    metadata:
+      labels:
+        app: autonomous_nodejs
+    spec:
+      containers:
+      - name: autonomous_nodejs
+        image: registry-1.docker.io/virtuallionel2/se_lionel_2_0:3
+        ports:
+        - containerPort: 80 #Endpoint is at port 80 in the container
+      imagePullSecrets:
+        - name: ocirsecret
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: autonomous_nodejs-k8s-service
+spec:
+  type: NodePort #Exposes the service as a node port
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: autonomous_nodejs
